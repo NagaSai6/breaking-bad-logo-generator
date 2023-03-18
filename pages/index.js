@@ -29,7 +29,7 @@ export default function Home() {
       // context.drawImage(canvas,465,40,465,524,0,0,465,524);
       var link=document.createElement("a");
       link.href=canvas.toDataURL('image/jpg');
-      link.download = 'screenshot.jpg';
+      link.download = `${posterData.firstNameData.symbol}${posterData.firstNameData.restOfFirstName}-breaking-bad-logo.png`;
       link.click();
   });
   }
