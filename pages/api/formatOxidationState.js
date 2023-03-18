@@ -36,7 +36,7 @@ export default function FormatOxidationState(props) {
   
 
   return (
-    <div className={HomeStyles.posterFirstOxidationStates}>
+    <div className={HomeStyles[props.class]}>
       { stringToArray.length >3 ? stringToArray.slice(0,4).reverse().map((e) => {
         return <p className={HomeStyles.posterFirstOS} key={e}>{e}</p>;
       }) : (stringToArray.length > 0 ? stringToArray.map((e)=>{return <p key={e}>{e}</p>;}) : '') }

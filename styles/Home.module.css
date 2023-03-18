@@ -11,12 +11,13 @@ padding: 50px;
   margin-right: 5px;
 }
 .posterMainContainer{
-  width: 1080px;
-  height: 1080px;
+  width: 1000px;
+  height: 1000px;
   position: relative;
   background-repeat: no-repeat;
   background-image: url('../public/images/bb.png');
   margin: auto;
+  scale: 0.5;
 }
 .posterFirstAtomicMass{
   position: absolute;
@@ -25,20 +26,81 @@ padding: 50px;
   z-index: 2;
   color: white;
 }
+.posterLastAtomicMass{
+  position: absolute;
+  top : 526px;
+  left :488px;
+  z-index: 2;
+  color: white;
+}
 .posterFirstAtomicSymbol{
   position: absolute;
-  top : 368px;
-  left :335px;
+  top : 370px;
+  left :345px;
+  font-size: 100px;
+  color: white;
+  /* width: 115px;
+  height: 90px; */
+  text-align: center;
+  display: inline-flex;
+}
+.posterFirstAtomicSymbolOneChar{
+  left :360px;
+  position: absolute;
+  top : 370px;
+  font-size: 100px;
+  color: white;
+  /* width: 115px;
+  height: 90px; */
+  text-align: center;
+  display: inline-flex;
+}
+
+.posterLastAtomicSymbol{
+  position: absolute;
+  top : 545px;
+  left :527px;
   font-size: 100px;
   color: white;
   width: 115px;
   height: 90px;
   text-align: center;
 }
+.posterRestOfFirstName{
+  position: absolute;
+  top : 370px;
+  left :490px;
+  font-size: 100px;
+  color: #fff;
+  /* width: 115px;
+  height: 90px; */
+  /* text-align: center; */
+  display: inline-flex;
+}
+.posterRestOfLastName{
+  position: absolute;
+  top : 545px;
+  left :672px;
+  font-size: 100px;
+  color: #fff;
+  width: 115px;
+  height: 90px;
+  text-align: center;
+  display: inline-flex;
+}
 .posterFirstAtomicNumber{
   position: absolute;
-  top : 465px;
+  top : 475px;
   left: 309px;
+
+  height: 10px;
+  color: white;
+  font-size: 15px;
+}
+.posterLastAtomicNumber{
+  position: absolute;
+  top : 650px;
+  left: 488px;
 
   height: 10px;
   color: white;
@@ -46,19 +108,37 @@ padding: 50px;
 }
 .posterFirstElectronicConfig{
   position: absolute;
-  top : 490px;
+  top : 495px;
   left: 309px;
   height: 10px;
   color: white;
   font-size: 15px;
 }
+.posterLastElectronicConfig{
+  position: absolute;
+  top : 675px;
+  left: 488px;
+  height: 10px;
+  color: white;
+  font-size: 15px;
+}
+
 .posterFirstOxidationStates{
   position: absolute;
-  top: 343px;
+  top: 348px;
   left : 456px;
   width: 17px;
   color: white;
-  font-size: 15px;
+  font-size: 12px;
+  z-index: 2;
+}
+.posterLastOxidationStates{
+  position: absolute;
+  top: 526px;
+  left : 640px;
+  width: 17px;
+  color: white;
+  font-size: 12px;
 }
 .posterFirstOS{
   margin:0;
