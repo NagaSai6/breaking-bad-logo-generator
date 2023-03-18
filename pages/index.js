@@ -22,9 +22,14 @@ export default function Home() {
   function triggerDownload(){
     html2canvas(document.querySelector("#logo")).then(canvas => {
       // document.body.appendChild(canvas)
-      var link = document.createElement('a');
-      link.download = 'breaking-bad.png';
-      link.href = canvas.toDataURL()
+      var tempcanvas = document.createElement('canvas');
+      tempcanvas.width=1080;
+      tempcanvas.height=1080;
+      // var context=tempcanvas.getContext('2d');
+      // context.drawImage(canvas,465,40,465,524,0,0,465,524);
+      var link=document.createElement("a");
+      link.href=canvas.toDataURL('image/jpg');
+      link.download = 'screenshot.jpg';
       link.click();
   });
   }
@@ -34,8 +39,9 @@ export default function Home() {
       <InputForm fun={processTheInputAndFetchData} />
       {posterData.isMatch ? 
       <>
-      <button onClick={triggerDownload}>Download</button>
-      <Poster pData={posterData}/> </>: ''}
+      
+      <Poster pData={posterData}/> 
+      <button style={{textAlign:'center'}} onClick={triggerDownload}>Download</button></>: ''}
     </div>
   );
 }
