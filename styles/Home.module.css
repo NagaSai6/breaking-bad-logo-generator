@@ -16,8 +16,8 @@ padding: 50px;
   position: relative;
   background-repeat: no-repeat;
   background-image: url('../public/images/bb.png');
-  margin: auto;
-  scale: 0.5;
+
+  /* scale: 0.5; */
 }
 .posterFirstAtomicMass{
   position: absolute;
