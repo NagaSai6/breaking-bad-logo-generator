@@ -18,7 +18,7 @@ export default function Home() {
   let [formSubmit, setFormSubmit] = useState(false);
   function processTheInputAndFetchData(name) {
     let data = fetchDataFromUserInput(name);
-
+      setFormSubmit(true);
     if (data.isMatch) {
       setPostData({
         ...posterData,
@@ -33,7 +33,7 @@ export default function Home() {
 
   function triggerDownload() {}
 
-  if (!posterData.isMatch) {
+  if (!posterData.isMatch && formSubmit) {
     Swal.fire({
       title: "N-methylamphetamine",
       text: "Hey Biyotch... No periodic symbol associated with your first two chars",
