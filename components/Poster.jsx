@@ -39,7 +39,7 @@ useEffect(()=>{
     });
   
   
-},[])
+},[props.pData])
 
 
 console.log(imgData)
