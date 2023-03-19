@@ -36,7 +36,7 @@ export default function Home() {
   if (!posterData.isMatch && formSubmit) {
     Swal.fire({
       title: "N-methylamphetamine",
-      text: "Hey Biyotch... No periodic symbol associated with your first two chars",
+      text: "Hey Biyotch... No periodic symbol associated with your first two or last two chars",
       icon: "error",
       confirmButtonText: "Okay My bad",
     });
