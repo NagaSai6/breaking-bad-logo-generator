@@ -46,7 +46,7 @@ console.log(imgData)
 
   return (
     <>      
-    {imgData.isGenerated ? <Image data={imgData}></Image> : <p>Generating</p>}
+    {imgData.isGenerated ? <Image data={imgData}></Image> : <div style={{textAlign:'center'}}><p>Generating</p></div>}
     <div className={HomeStyles.posterMainContainer} id="logo" style={{display:'none'}}> 
       <div className={HomeStyles.posterFirstAtomicMass}>
         {props.pData.firstNameData.atomicMass}
