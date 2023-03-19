@@ -6,9 +6,9 @@ import html2canvas from "html2canvas";
 import { useState } from "react";
 import { Button } from "react-bootstrap";
 import Swal from "sweetalert2";
-
+import Head from "next/head";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import ParticlesYo from "../components/ParticlesYo";
 export default function Home() {
   let [posterData, setPostData] = useState({
     firstNameData: "",
@@ -47,6 +47,7 @@ export default function Home() {
 
   return (
     <div>
+    {/* <ParticlesYo /> */}
       <div className={styles.container}>
         <h1 className="text-align-center">
           Breaking Bad logo generator Naga Sai
