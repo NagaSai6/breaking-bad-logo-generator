@@ -4,57 +4,62 @@ import fetchDataFromUserInput from "./api/fetchDataFromUserInput";
 import Poster from "../components/Poster";
 import html2canvas from "html2canvas";
 import { useState } from "react";
-import Button from '@mui/material/Button';
-import Swal from 'sweetalert2'
+import { Button } from "react-bootstrap";
+import Swal from "sweetalert2";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+
 export default function Home() {
-  let [posterData,setPostData] = useState({firstNameData:'',lastNameData:'',isMatch:false});
-  let [formSubmit,setFormSubmit] = useState(false);
+  let [posterData, setPostData] = useState({
+    firstNameData: "",
+    lastNameData: "",
+    isMatch: false,
+  });
+  let [formSubmit, setFormSubmit] = useState(false);
   function processTheInputAndFetchData(name) {
     let data = fetchDataFromUserInput(name);
-    console.log(data);
-    setFormSubmit(true)
-    if (data.isMatch) {
-      
-      setPostData({...posterData,firstNameData : data.firstNameData,lastNameData : data.lastNameData,isMatch : true});
-    }else{
-      setPostData({firstNameData : '',lastNameData : '',isMatch : false});
 
+    if (data.isMatch) {
+      setPostData({
+        ...posterData,
+        firstNameData: data.firstNameData,
+        lastNameData: data.lastNameData,
+        isMatch: true,
+      });
+    } else {
+      setPostData({ firstNameData: "", lastNameData: "", isMatch: false });
     }
   }
 
+  function triggerDownload() {}
 
-  function triggerDownload(){
-    html2canvas(document.querySelector("#logo")).then(canvas => {
-      // document.body.appendChild(canvas)
-      var tempcanvas = document.createElement('canvas');
-      tempcanvas.width=500;
-      tempcanvas.height=500;
-      // var context=tempcanvas.getContext('2d');
-      // context.drawImage(canvas,465,40,465,524,0,0,465,524);
-      var link=document.createElement("a");
-      link.href=canvas.toDataURL('image/jpg');
-      link.download = `${posterData.firstNameData.symbol}${posterData.firstNameData.restOfFirstName}-breaking-bad-logo.png`;
-      link.click();
-  });
-  }
-
-  if(!posterData.isMatch && formSubmit){
+  if (!posterData.isMatch) {
     Swal.fire({
-      title: 'N-methylamphetamine',
-      text: 'Hey Biyotch... No periodic symbol associated with your first two chars',
-      icon: 'error',
-      confirmButtonText: 'Okay My bad'
-    })
+      title: "N-methylamphetamine",
+      text: "Hey Biyotch... No periodic symbol associated with your first two chars",
+      icon: "error",
+      confirmButtonText: "Okay My bad",
+    });
   }
+
+
+
 
   return (
-    <div className={styles.container}>
+    <div>
+      <div className={styles.container}>
+        <h1 className="text-align-center">
+          Breaking Bad logo generator Naga Sai
+        </h1>
+      </div>
       <InputForm fun={processTheInputAndFetchData} />
-      {posterData.isMatch ? 
-      <>
-      <div style={{textAlign:'center',marginBottom:'30px'}}> <Button variant="contained" style={{textAlign:'center'}} onClick={triggerDownload}>Download</Button></div>
-      <Poster pData={posterData}/> 
-     </> : ''}
+      {posterData.isMatch && (
+        <>
+          {" "}
+
+          <Poster pData={posterData} triggerDownload={triggerDownload} />{" "}
+        </>
+      )}
     </div>
   );
 }

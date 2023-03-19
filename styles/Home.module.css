@@ -10,6 +10,16 @@ padding: 50px;
 .textInput{
   margin-right: 5px;
 }
+
+
+.container{
+  text-align: center;
+  padding: 30px;
+  font-family: 'heart_breaking_badregular';
+  background: -webkit-linear-gradient(#0D3E10, #369457);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 .posterMainContainer{
   width: 1000px;
   height: 1000px;
@@ -43,6 +53,7 @@ padding: 50px;
   color: white;
   /* width: 115px;
   height: 90px; */
+  font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   display: inline-flex;
 }
@@ -146,4 +157,11 @@ padding: 50px;
   margin:0;
   padding-bottom: 1px;
   text-align: center;
+}
+
+@media screen and (max-width : 500px) {
+  .posterMainContainer{
+    width: 100%;
+  
+  }
 }

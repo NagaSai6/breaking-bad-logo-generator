@@ -17,6 +17,14 @@ a {
   padding: 0 ;
 }
 
+.form-label{
+  font-family: 'heart_breaking_badregular' !important;
+  background: -webkit-linear-gradient(#0D3E10, #369457);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.8rem;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

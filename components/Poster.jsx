@@ -1,8 +1,14 @@
 import HomeStyles from "../styles/Home.module.css";
 import fetchElectronConfig from "../pages/api/fetchElectronicConfig";
 import FormatOxidationState from "../pages/api/formatOxidationState";
+import { Button } from "react-bootstrap";
+import { useEffect } from "react";
+import html2canvas from "html2canvas";
+import Image from "./Image";
+import { useState } from "react";
 
 export default function Poster(props) {
+  let [imgData,setImageData] = useState({url:'',isGenerated : false})
   let atomicNumber = props.pData.firstNameData.atomicNumber;
   let lastAtomicNumber = props.pData.lastNameData.atomicNumber;
   let firstNameElectronicConfig = fetchElectronConfig(atomicNumber);
@@ -13,8 +19,35 @@ export default function Poster(props) {
  }else{
   temp = 'posterFirstAtomicSymbolOneChar'
  }
+
+useEffect(()=>{
+  
+    html2canvas(document.querySelector("#logo"), {
+      onclone: function (clonedDoc) {
+        clonedDoc.getElementById("logo").style.display = "block";
+      },
+    }).then((canvas) => {
+      // var link = document.createElement("a");
+      // var img = document.createElement("img");
+      setImageData({url : canvas.toDataURL("image/jpg"),isGenerated : true})
+      // link.href = canvas.toDataURL("image/jpg");
+      // img.src = canvas.toDataURL("image/jpg") ;
+      // img.style.scale = 0.5;
+      // document.body.appendChild(img);
+      // link.download = `${posterData.firstNameData.symbol}${posterData.firstNameData.restOfFirstName}-breaking-bad-logo.png`;
+      // link.click();
+    });
+    console.log('useeefect')
+  
+},[props.pData])
+
+
+console.log(imgData)
+
   return (
-    <div className={HomeStyles.posterMainContainer} id="logo">
+    <>      
+    {imgData.isGenerated ? <Image data={imgData}></Image> : <p>Generating</p>}
+    <div className={HomeStyles.posterMainContainer} id="logo" style={{display:'none'}}> 
       <div className={HomeStyles.posterFirstAtomicMass}>
         {props.pData.firstNameData.atomicMass}
       </div>
@@ -51,5 +84,6 @@ export default function Poster(props) {
       <FormatOxidationState oData={props.pData.firstNameData.oxidationStates} class="posterFirstOxidationStates"/>
       <FormatOxidationState oData={props.pData.lastNameData.oxidationStates} class="posterLastOxidationStates"/>
     </div>
+    </>
   );
 }
