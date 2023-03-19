@@ -25,7 +25,7 @@ useEffect(()=>{
     html2canvas(document.querySelector("#logo"), {
       onclone: function (clonedDoc) {
         clonedDoc.getElementById("logo").style.display = "block";
-      }, width: 1200
+      }
     }).then((canvas) => {
       // var link = document.createElement("a");
       // var img = document.createElement("img");
