@@ -25,7 +25,7 @@ useEffect(()=>{
     html2canvas(document.querySelector("#logo"), {
       onclone: function (clonedDoc) {
         clonedDoc.getElementById("logo").style.display = "block";
-      },height : 1080,width : 1080
+      }
     }).then((canvas) => {
       // var link = document.createElement("a");
       // var img = document.createElement("img");
@@ -37,9 +37,9 @@ useEffect(()=>{
       // link.download = `${posterData.firstNameData.symbol}${posterData.firstNameData.restOfFirstName}-breaking-bad-logo.png`;
       // link.click();
     });
-    console.log('useeefect')
   
-},[props.pData])
+  
+},[])
 
 
 console.log(imgData)
